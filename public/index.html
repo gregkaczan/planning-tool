@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurotrip 2025</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; overflow-x: hidden; padding: 10px; }
+        .table-container { overflow-x: auto; max-width: 100vw; position: relative; }
+        table { border-collapse: collapse; width: max-content; font-size: 12px; }
+        th, td { border: 1px solid black; padding: 3px; text-align: center; cursor: pointer;     min-width: 20px;
+            height: 25px; }
+        .available { background-color: green; color: white; }
+        .unavailable { background-color: #fd8282; color: white; }
+        th { background-color: #ddd; }
+        .sticky-header { position: sticky; top: 0; background: white; z-index: 2; }
+        .person-column { position: sticky; left: 0; background: white; z-index: 3; }
+        .weekend { background-color: lightgray; }
+        .weekend-f { filter: brightness(0.9); }
+        .legend { margin-bottom: 10px; display: flex; gap: 15px; align-items: center; }
+        .legend-item { display: flex; align-items: center; gap: 5px; }
+        .legend-color { width: 15px; height: 15px; border: 1px solid black; }
+    </style>
+</head>
+<body>
+    <h1>Eurotrip 2025</h1>
+
+    <div class="legend">
+        <strong>Legenda:</strong>
+        <div class="legend-item"><div class="legend-color available"></div> Dostępny</div>
+        <div class="legend-item"><div class="legend-color unavailable"></div> Niedostępny</div>
+    </div>
+
+    <p>Kliknij na komórkę, aby zmienić dostępność</p>
+
+
+    <div class="table-container">
+        <table id="planningGrid"></table>
+    </div>
+
+    <script>
+        const people = ["Kwak", "Grucha", "Wasyl", "Hubert", "Mucha"];
+        const months = { "Kwiecień": 30, "Maj": 31, "Czerwiec": 30, "Lipiec": 31, "Sierpień": 31, "Wrzesień": 30, "Pażdziernik": 31 };
+        const monthNames = Object.keys(months);
+        const polishWeekdays = ["N", "P", "W", "Ś", "C", "P", "S"]; // Niedziela - Sobota
+        let availability = {}; 
+
+        function getWeekday(month, day) {
+            const monthIndex = monthNames.indexOf(month) + 3; // April = 3 (0-based index for Date)
+            const date = new Date(2025, monthIndex, day); // 2024 is a leap year but irrelevant for April-Oct
+            return date.getDay(); // 0 (Sunday) - 6 (Saturday)
+        }
+
+        async function fetchAvailability() {
+            const response = await fetch("/api/availability");
+            const data = await response.json();
+            data.forEach(({ person, day, available }) => {
+                if (!availability[person]) availability[person] = {};
+                availability[person][day] = available === 1;
+            });
+            renderGrid();
+        }
+
+        async function toggleAvailability(person, day) {
+            availability[person] = availability[person] ?? {
+                [day]: true
+            };
+
+            const available = availability[person][day] === undefined ? true : availability[person][day];
+            availability[person][day] =  !available;
+            document.getElementById(`${person}-${day}`).className = !available ? "available" : "unavailable";
+
+            await fetch("/api/availability", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ person, day, available: !available ? 1 : 0 })
+            });
+        }
+
+        function renderGrid() {
+            const table = document.getElementById("planningGrid");
+            table.innerHTML = "";
+
+            // Month names row
+            const headerRow = document.createElement("tr");
+            headerRow.innerHTML = `<th class="sticky-header person-column"></th>` + 
+                monthNames.map(month => `<th class="sticky-header" colspan="${months[month]}">${month}</th>`).join("");
+            table.appendChild(headerRow);
+
+            // Weekday initials row
+            const weekdayRow = document.createElement("tr");
+            weekdayRow.innerHTML = `<td class="sticky-header person-column"></td>` + 
+                monthNames.map(month => 
+                    Array.from({ length: months[month] }, (_, i) => {
+                        const weekdayIndex = getWeekday(month, i + 1);
+                        return `<th class="sticky-header ${weekdayIndex === 0 || weekdayIndex === 6 ? 'weekend' : ''}">${polishWeekdays[weekdayIndex]}</th>`;
+                    }).join("")
+                ).join("");
+            table.appendChild(weekdayRow);
+
+            // Day numbers row
+            const dayRow = document.createElement("tr");
+            dayRow.innerHTML = `<td class="sticky-header person-column"></td>` + 
+                monthNames.map(month => 
+                    Array.from({ length: months[month] }, (_, i) => {
+                        const weekdayIndex = getWeekday(month, i + 1);
+                        return `<th class="sticky-header ${weekdayIndex === 0 || weekdayIndex === 6 ? 'weekend' : ''}">${i + 1}</th>`;
+                    }).join("")
+                ).join("");
+            table.appendChild(dayRow);
+
+            // Person rows
+            people.forEach(person => {
+                const row = document.createElement("tr");
+                row.innerHTML = `<td class="sticky-header person-column">${person}</td>` +
+                    monthNames.map(month =>
+                        Array.from({ length: months[month] }, (_, i) => {
+                            const day = `${month}-${i + 1}`;
+                            const available = availability[person]?.[day] ?? true;
+                            const weekdayIndex = getWeekday(month, i + 1);
+                            return `<td id="${person}-${day}" class="${available ? "available" : "unavailable"} ${weekdayIndex === 0 || weekdayIndex === 6 ? 'weekend-f' : ''}" onclick="toggleAvailability('${person}', '${day}')"></td>`;
+                        }).join("")
+                    ).join("");
+                table.appendChild(row);
+            });
+        }
+
+        fetchAvailability();
+    </script>
+</body>
+</html>
