@@ -1,36 +1,44 @@
+const fs = require("fs");
+const https = require("https");
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
-const cors = require("cors");
-const fs = require("fs");
+const path = require("path");
 
 const app = express();
-const PORT = 3000;
+const db = new sqlite3.Database("database.db");
 
-app.use(cors());
+// Załaduj certyfikat SSL
+const options = {
+    key: fs.readFileSync("./privkey.pem"),  
+    cert: fs.readFileSync("./cert.pem")
+};
+
+// Obsługa statycznych plików HTML/CSS/JS
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
-app.use(express.static("public"));
 
-// Database setup
-const dbFile = "availability.db";
-if (!fs.existsSync(dbFile)) {
-  const db = new sqlite3.Database(dbFile);
-  db.serialize(() => {
-    db.run("CREATE TABLE availability (person TEXT, day TEXT, available INTEGER, PRIMARY KEY (person, day))");
-  });
-  db.close();
-}
-
-const db = new sqlite3.Database(dbFile);
-
-// API: Get availability data
+// API do pobierania dostępności
 app.get("/api/availability", (req, res) => {
-  db.all("SELECT * FROM availability", [], (err, rows) => {
-    if (err) return res.status(500).json({ error: err.message });
-    res.json(rows);
-  });
+    db.all("SELECT * FROM availability", [], (err, rows) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json(rows);
+    });
 });
 
-// API: Reset database (Clears all availability data)
+// API do zapisywania dostępności
+app.post("/api/availability", (req, res) => {
+    const { person, day, available } = req.body;
+    db.run(
+        "INSERT INTO availability (person, day, available) VALUES (?, ?, ?) ON CONFLICT(person, day) DO UPDATE SET available = ?",
+        [person, day, available, available],
+        (err) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json({ success: true });
+        }
+    );
+});
+
+// API do resetowania bazy danych
 app.post("/api/reset", (req, res) => {
     db.run("DELETE FROM availability", [], (err) => {
         if (err) return res.status(500).json({ error: err.message });
@@ -38,21 +46,7 @@ app.post("/api/reset", (req, res) => {
     });
 });
 
-
-// API: Update availability
-app.post("/api/availability", (req, res) => {
-  const { person, day, available } = req.body;
-  db.run(
-    "INSERT INTO availability (person, day, available) VALUES (?, ?, ?) ON CONFLICT(person, day) DO UPDATE SET available = excluded.available",
-    [person, day, available],
-    (err) => {
-      if (err) return res.status(500).json({ error: err.message });
-      res.json({ success: true });
-    }
-  );
-});
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+// Uruchomienie serwera HTTPS
+https.createServer(options, app).listen(443, () => {
+    console.log("Serwer HTTPS działa na porcie 443");
 });
