@@ -17,10 +17,17 @@ const options = {
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
+function logToFile(message) {
+    const logStream = fs.createWriteStream("activity.log", { flags: "a" });
+    logStream.write(`${new Date().toISOString()} - ${message}\n`);
+    logStream.end();
+}
+
 // API do pobierania dostępności
 app.get("/api/availability", (req, res) => {
     db.all("SELECT * FROM availability", [], (err, rows) => {
         if (err) return res.status(500).json({ error: err.message });
+
         res.json(rows);
     });
 });
@@ -28,11 +35,15 @@ app.get("/api/availability", (req, res) => {
 // API do zapisywania dostępności
 app.post("/api/availability", (req, res) => {
     const { person, day, available } = req.body;
+    const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+    const userAgent = req.headers["user-agent"];
     db.run(
         "INSERT INTO availability (person, day, available) VALUES (?, ?, ?) ON CONFLICT(person, day) DO UPDATE SET available = ?",
         [person, day, available, available],
         (err) => {
             if (err) return res.status(500).json({ error: err.message });
+            
+            logToFile(`IP: ${ip}, Browser: ${userAgent}, Person: ${person}, Day: ${day}, Available: ${available}`);
             res.json({ success: true });
         }
     );
