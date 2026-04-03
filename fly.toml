@@ -6,6 +6,10 @@
 app = 'planning-tool-holy-sun-2138'
 primary_region = 'fra'
 
+[mounts]
+  source = "data"
+  destination = "/data"
+
 [build]
 
 [http_service]

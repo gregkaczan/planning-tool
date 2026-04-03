@@ -5,7 +5,9 @@ const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const DB_PATH = path.join(__dirname, "availability.db");
+const DB_PATH = process.env.FLY_APP_NAME
+    ? path.join("/data", "availability.db")
+    : path.join(__dirname, "availability.db");
 const db = new sqlite3.Database(DB_PATH);
 
 db.run(`CREATE TABLE IF NOT EXISTS availability (
