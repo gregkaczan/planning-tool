@@ -1,24 +1,26 @@
 const fs = require("fs");
-const https = require("https");
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 
 const app = express();
-const db = new sqlite3.Database("availability.db");
+const PORT = process.env.PORT || 3000;
+const DB_PATH = path.join(__dirname, "availability.db");
+const db = new sqlite3.Database(DB_PATH);
 
-// Załaduj certyfikat SSL
-const options = {
-    key: fs.readFileSync("./privkey.pem"),  
-    cert: fs.readFileSync("./cert.pem")
-};
+db.run(`CREATE TABLE IF NOT EXISTS availability (
+    person TEXT,
+    day TEXT,
+    available INTEGER,
+    PRIMARY KEY (person, day)
+)`);
 
-// Obsługa statycznych plików HTML/CSS/JS
+app.set("trust proxy", true);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 
 function logToFile(message) {
-    const logStream = fs.createWriteStream("activity.log", { flags: "a" });
+    const logStream = fs.createWriteStream(path.join(__dirname, "activity.log"), { flags: "a" });
     logStream.write(`${new Date().toISOString()} - ${message}\n`);
     logStream.end();
 }
@@ -57,7 +59,6 @@ app.post("/api/reset", (req, res) => {
     });
 });
 
-// Uruchomienie serwera HTTPS
-https.createServer(options, app).listen(443, () => {
-    console.log("Serwer HTTPS działa na porcie 443");
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
