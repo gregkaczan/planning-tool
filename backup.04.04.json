@@ -1,0 +1,1157 @@
+[
+    {
+        "person": "Kwak",
+        "day": "Kwiecień-2",
+        "available": 0
+    },
+    {
+        "person": "Kwak",
+        "day": "Kwiecień-3",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Kwiecień-2",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Kwiecień-27",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Kwiecień-28",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Kwiecień-29",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Kwiecień-30",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Maj-1",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Maj-2",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Maj-3",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Maj-4",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Maj-5",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Maj-6",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-20",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-21",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-22",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-23",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-24",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-25",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-26",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-27",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-28",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-29",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-30",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-31",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-1",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-2",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-17",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-18",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-19",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-20",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-22",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-21",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-23",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-25",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-26",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-24",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-27",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-29",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-28",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-30",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-31",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Wrzesień-1",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Wrzesień-2",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Wrzesień-3",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Wrzesień-4",
+        "available": 1
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-17",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-18",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-19",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-20",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-21",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-22",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-23",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-24",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-25",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-26",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-27",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-28",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-29",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-30",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Sierpień-31",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Wrzesień-1",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Wrzesień-2",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Wrzesień-3",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Wrzesień-4",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Lipiec-20",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Lipiec-21",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Lipiec-22",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Lipiec-23",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Lipiec-24",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Lipiec-25",
+        "available": 0
+    },
+    {
+        "person": "Grucha",
+        "day": "Lipiec-26",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Lipiec-12",
+        "available": 1
+    },
+    {
+        "person": "Wasyl",
+        "day": "Lipiec-13",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Lipiec-14",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Lipiec-15",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Lipiec-16",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Lipiec-17",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Lipiec-18",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Lipiec-19",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Lipiec-27",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Lipiec-28",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Lipiec-29",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Lipiec-30",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Lipiec-31",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-1",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-2",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-11",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-10",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-12",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-13",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-14",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-15",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-16",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-24",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-26",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-25",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Sierpień-26",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-28",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-27",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-29",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-31",
+        "available": 1
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-30",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-7",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-8",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-9",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-10",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-12",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-11",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-13",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-21",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-22",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-23",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-24",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-25",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-26",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Wrzesień-27",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-5",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-6",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-7",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-8",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-9",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-10",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-11",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-19",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-20",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-22",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-21",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-23",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-24",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Październik-25",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-9",
+        "available": 0
+    },
+    {
+        "person": "Wasyl",
+        "day": "Sierpień-8",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Maj-21",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Maj-22",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Maj-23",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Maj-24",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Maj-25",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Maj-26",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Maj-27",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Czerwiec-26",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Czerwiec-27",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Czerwiec-28",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Czerwiec-29",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Czerwiec-30",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-2",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-3",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-1",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-4",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-5",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-6",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-7",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-8",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-10",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Lipiec-9",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-3",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-4",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Sierpień-5",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Wrzesień-5",
+        "available": 1
+    },
+    {
+        "person": "Kwaku",
+        "day": "Wrzesień-18",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Wrzesień-19",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Wrzesień-20",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Wrzesień-21",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Wrzesień-22",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Czerwiec-20",
+        "available": 0
+    },
+    {
+        "person": "Kwaku",
+        "day": "Czerwiec-21",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Kwiecień-27",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Kwiecień-28",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Kwiecień-29",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Kwiecień-30",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Maj-1",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Maj-2",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Maj-3",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Maj-4",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Maj-5",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Maj-6",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Lipiec-20",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Lipiec-21",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Lipiec-22",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Lipiec-23",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Lipiec-24",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Lipiec-25",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Lipiec-26",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Lipiec-27",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Lipiec-28",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Lipiec-29",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Lipiec-30",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Lipiec-31",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Sierpień-24",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Sierpień-25",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Sierpień-23",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Sierpień-22",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Sierpień-21",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Sierpień-27",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Sierpień-28",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Sierpień-29",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Sierpień-30",
+        "available": 0
+    },
+    {
+        "person": "Hubert",
+        "day": "Wrzesień-1",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Sierpień-1",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Sierpień-2",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Sierpień-8",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Sierpień-9",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-11",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-12",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-13",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-14",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-15",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-16",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-17",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-18",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-19",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-20",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-21",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-22",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-23",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-24",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-25",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-26",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-27",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-28",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-29",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-30",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Lipiec-31",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Czerwiec-6",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Czerwiec-7",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Czerwiec-5",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Czerwiec-4",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Czerwiec-27",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Czerwiec-28",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Czerwiec-25",
+        "available": 0
+    },
+    {
+        "person": "Mucha",
+        "day": "Czerwiec-26",
+        "available": 0
+    }
+]
