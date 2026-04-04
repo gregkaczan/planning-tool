@@ -23,6 +23,18 @@
         .legend { margin-bottom: 10px; display: flex; gap: 15px; align-items: center; }
         .legend-item { display: flex; align-items: center; gap: 5px; }
         .legend-color { width: 15px; height: 15px; border: 1px solid black; }
+
+        .slot-controls { margin: 20px 0 10px; display: flex; gap: 20px; align-items: center; }
+        .slot-controls label { display: flex; align-items: center; gap: 5px; cursor: pointer; font-size: 14px; }
+        .slot-controls input[type="radio"] { cursor: pointer; accent-color: #3b7dd8; }
+        .slot-results { margin: 0 0 20px; padding: 15px; background: #f0f6ff; border-radius: 8px; border: 1px solid #c0d8f0; }
+        .slot-results h3 { margin: 0 0 10px 0; font-size: 16px; color: #2c5282; }
+        .slot-month { margin-bottom: 4px; font-size: 14px; }
+        .slot-month strong { color: #2c5282; }
+        .slot-range-cell { background-color: #5b9bd5 !important; }
+        .slot-range-cell.weekend-f { background-color: #4a88c2 !important; }
+        td.slot-range-cell:hover { background-color: #4078a8 !important; outline: 2px solid #333; outline-offset: -2px; }
+        .slot-header-highlight { background-color: #d4e6f6 !important; }
     </style>
 </head>
 <body>
@@ -41,17 +53,131 @@
         <table id="planningGrid"></table>
     </div>
 
+    <div class="slot-controls">
+        <strong>Rozmiar slotu:</strong>
+        <label><input type="radio" name="slotSize" value="2" onchange="onSlotSizeChange(2)"> 2 dni</label>
+        <label><input type="radio" name="slotSize" value="3" onchange="onSlotSizeChange(3)" checked> 3 dni</label>
+        <label><input type="radio" name="slotSize" value="4" onchange="onSlotSizeChange(4)"> 4 dni</label>
+    </div>
+
+    <div id="slotResults" class="slot-results">
+        <h3>Dostępne sloty (<span id="slotSizeLabel">3</span> dni):</h3>
+        <div id="slotResultsContent"></div>
+    </div>
+
     <script>
         const people = ["Kwaku", "Grucha", "Wasyl", "Hubert", "Mucha"];
         const months = { "Kwiecień": 30, "Maj": 31, "Czerwiec": 30, "Lipiec": 31, "Sierpień": 31, "Wrzesień": 30, "Październik": 31, "Listopad": 30, "Grudzień": 31 };
         const monthNames = Object.keys(months);
-        const polishWeekdays = ["N", "Pn", "W", "Ś", "C", "Pt", "S"]; // Niedziela - Sobota
-        let availability = {}; 
+        const polishWeekdays = ["N", "Pn", "W", "Ś", "C", "Pt", "S"];
+        let availability = {};
+        let selectedSlotSize = 3;
+        let validSlotDays = new Set();
 
         function getWeekday(month, day) {
-            const monthIndex = monthNames.indexOf(month) + 3; // April = 3 (0-based index for Date)
-            const date = new Date(2026, monthIndex, day); // 2024 is a leap year but irrelevant for April-Oct
-            return date.getDay(); // 0 (Sunday) - 6 (Saturday)
+            const monthIndex = monthNames.indexOf(month) + 3;
+            const date = new Date(2026, monthIndex, day);
+            return date.getDay();
+        }
+
+        function getAllDaysOrdered() {
+            const days = [];
+            monthNames.forEach(month => {
+                for (let d = 1; d <= months[month]; d++) {
+                    days.push({ month, day: d, key: `${month}-${d}` });
+                }
+            });
+            return days;
+        }
+
+        function isEveryoneAvailable(dayKey) {
+            return people.every(person => (availability[person]?.[dayKey] ?? true));
+        }
+
+        function findAvailableSlots() {
+            const allDays = getAllDaysOrdered();
+            const runs = [];
+            let currentRun = [];
+
+            for (const dayInfo of allDays) {
+                if (isEveryoneAvailable(dayInfo.key)) {
+                    currentRun.push(dayInfo);
+                } else {
+                    if (currentRun.length >= selectedSlotSize) {
+                        runs.push([...currentRun]);
+                    }
+                    currentRun = [];
+                }
+            }
+            if (currentRun.length >= selectedSlotSize) {
+                runs.push(currentRun);
+            }
+
+            validSlotDays = new Set();
+            runs.forEach(run => run.forEach(d => validSlotDays.add(d.key)));
+
+            const byMonth = {};
+            for (const run of runs) {
+                let segStart = 0;
+                for (let i = 1; i <= run.length; i++) {
+                    if (i === run.length || run[i].month !== run[segStart].month) {
+                        const m = run[segStart].month;
+                        if (!byMonth[m]) byMonth[m] = [];
+                        const s = run[segStart].day;
+                        const e = run[i - 1].day;
+                        byMonth[m].push(s === e ? `${s}` : `${s}-${e}`);
+                        segStart = i;
+                    }
+                }
+            }
+            return byMonth;
+        }
+
+        function renderSlotResults(byMonth) {
+            document.getElementById('slotSizeLabel').textContent = selectedSlotSize;
+            const content = document.getElementById('slotResultsContent');
+            let html = '';
+            for (const month of monthNames) {
+                if (byMonth[month] && byMonth[month].length > 0) {
+                    html += `<div class="slot-month"><strong>${month}:</strong> ${byMonth[month].join(', ')}</div>`;
+                }
+            }
+            if (!html) {
+                html = '<div style="color:#666;">Brak dostępnych slotów dla wybranego rozmiaru.</div>';
+            }
+            content.innerHTML = html;
+        }
+
+        function updateCalendarHighlighting() {
+            monthNames.forEach(month => {
+                for (let d = 1; d <= months[month]; d++) {
+                    const dayKey = `${month}-${d}`;
+                    const isSlotDay = validSlotDays.has(dayKey);
+
+                    const headerCell = document.getElementById(`header-${dayKey}`);
+                    if (headerCell) {
+                        headerCell.classList.toggle('slot-header-highlight', isSlotDay);
+                    }
+
+                    people.forEach(person => {
+                        const cell = document.getElementById(`${person}-${dayKey}`);
+                        if (cell) {
+                            cell.classList.toggle('slot-range-cell', isSlotDay);
+                        }
+                    });
+                }
+            });
+        }
+
+        function updateSlotDisplay() {
+            const byMonth = findAvailableSlots();
+            renderSlotResults(byMonth);
+            updateCalendarHighlighting();
+        }
+
+        function onSlotSizeChange(size) {
+            selectedSlotSize = size;
+            updateSlotDisplay();
         }
 
         async function fetchAvailability() {
@@ -61,17 +187,21 @@
                 if (!availability[person]) availability[person] = {};
                 availability[person][day] = available === 1;
             });
+            const byMonth = findAvailableSlots();
             renderGrid();
+            renderSlotResults(byMonth);
         }
 
         async function toggleAvailability(person, day) {
-            availability[person] = availability[person] ?? {
-                [day]: true
-            };
-
+            availability[person] = availability[person] ?? { [day]: true };
             const available = availability[person][day] === undefined ? true : availability[person][day];
-            availability[person][day] =  !available;
-            document.getElementById(`${person}-${day}`).className = !available ? "available" : "unavailable";
+            availability[person][day] = !available;
+
+            const cell = document.getElementById(`${person}-${day}`);
+            cell.classList.remove('available', 'unavailable');
+            cell.classList.add(!available ? 'available' : 'unavailable');
+
+            updateSlotDisplay();
 
             await fetch("/api/availability", {
                 method: "POST",
@@ -84,16 +214,14 @@
             const table = document.getElementById("planningGrid");
             table.innerHTML = "";
 
-            // Month names row
             const headerRow = document.createElement("tr");
-            headerRow.innerHTML = `<th class="sticky-header person-column"></th>` + 
+            headerRow.innerHTML = `<th class="sticky-header person-column"></th>` +
                 monthNames.map(month => `<th class="sticky-header" colspan="${months[month]}">${month}</th>`).join("");
             table.appendChild(headerRow);
 
-            // Weekday initials row
             const weekdayRow = document.createElement("tr");
-            weekdayRow.innerHTML = `<td class="sticky-header person-column"></td>` + 
-                monthNames.map(month => 
+            weekdayRow.innerHTML = `<td class="sticky-header person-column"></td>` +
+                monthNames.map(month =>
                     Array.from({ length: months[month] }, (_, i) => {
                         const weekdayIndex = getWeekday(month, i + 1);
                         return `<th class="sticky-header ${weekdayIndex === 0 || weekdayIndex === 6 ? 'weekend' : ''}">${polishWeekdays[weekdayIndex]}</th>`;
@@ -101,18 +229,18 @@
                 ).join("");
             table.appendChild(weekdayRow);
 
-            // Day numbers row
             const dayRow = document.createElement("tr");
-            dayRow.innerHTML = `<td class="sticky-header person-column"></td>` + 
-                monthNames.map(month => 
+            dayRow.innerHTML = `<td class="sticky-header person-column"></td>` +
+                monthNames.map(month =>
                     Array.from({ length: months[month] }, (_, i) => {
+                        const dayKey = `${month}-${i + 1}`;
                         const weekdayIndex = getWeekday(month, i + 1);
-                        return `<th class="sticky-header ${weekdayIndex === 0 || weekdayIndex === 6 ? 'weekend' : ''}">${i + 1}</th>`;
+                        const slotClass = validSlotDays.has(dayKey) ? ' slot-header-highlight' : '';
+                        return `<th id="header-${dayKey}" class="sticky-header ${weekdayIndex === 0 || weekdayIndex === 6 ? 'weekend' : ''}${slotClass}">${i + 1}</th>`;
                     }).join("")
                 ).join("");
             table.appendChild(dayRow);
 
-            // Person rows
             people.forEach(person => {
                 const row = document.createElement("tr");
                 row.innerHTML = `<td class="sticky-header person-column">${person}</td>` +
@@ -121,7 +249,9 @@
                             const day = `${month}-${i + 1}`;
                             const available = availability[person]?.[day] ?? true;
                             const weekdayIndex = getWeekday(month, i + 1);
-                            return `<td id="${person}-${day}" class="${available ? "available" : "unavailable"} ${weekdayIndex === 0 || weekdayIndex === 6 ? 'weekend-f' : ''}" onclick="toggleAvailability('${person}', '${day}')"></td>`;
+                            const weekendClass = weekdayIndex === 0 || weekdayIndex === 6 ? ' weekend-f' : '';
+                            const slotClass = validSlotDays.has(day) ? ' slot-range-cell' : '';
+                            return `<td id="${person}-${day}" class="${available ? 'available' : 'unavailable'}${weekendClass}${slotClass}" onclick="toggleAvailability('${person}', '${day}')"></td>`;
                         }).join("")
                     ).join("");
                 table.appendChild(row);
